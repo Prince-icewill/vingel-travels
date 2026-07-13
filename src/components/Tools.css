@@ -1,0 +1,174 @@
+.tool-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.tool-intro {
+  position: sticky;
+  top: 140px;
+}
+
+.tool-intro h2 {
+  font-size: clamp(28px, 3.4vw, 38px);
+  margin-top: 4px;
+}
+
+.tool-intro p {
+  margin-top: 18px;
+  color: var(--color-gray-500);
+  font-size: 16px;
+  max-width: 420px;
+}
+
+.tool-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lift);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tool-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.tool-field-row {
+  display: flex;
+  gap: 16px;
+}
+
+.tool-field label {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-gray-700);
+}
+
+.tool-field select,
+.tool-field input {
+  appearance: none;
+  border: 1.5px solid var(--color-hairline);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-white);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tool-field select:focus,
+.tool-field input:focus {
+  outline: none;
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 4px rgba(243, 112, 33, 0.14);
+}
+
+.tool-result {
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  margin-top: 4px;
+  animation: resultIn 0.4s ease;
+}
+
+@keyframes resultIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tool-result--yes {
+  background: #eefaf0;
+  border: 1px solid #bfe8c7;
+}
+
+.tool-result--maybe {
+  background: var(--color-orange-light);
+  border: 1px solid #ffd3ab;
+}
+
+.tool-result--no {
+  background: #fdeeee;
+  border: 1px solid #f3c6c6;
+}
+
+.tool-result p {
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--color-ink);
+}
+
+.tool-result__disclaimer {
+  display: block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--color-gray-500);
+}
+
+/* Cost estimator specific */
+.estimate-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.estimate-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-hairline);
+  font-size: 14.5px;
+  color: var(--color-gray-700);
+}
+
+.estimate-list li span:last-child {
+  font-weight: 600;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.estimate-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding-top: 4px;
+}
+
+.estimate-total span:first-child {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-gray-500);
+}
+
+.estimate-total span:last-child {
+  font-family: var(--font-display);
+  font-size: 30px;
+  color: var(--color-orange);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 980px) {
+  .tool-layout {
+    grid-template-columns: 1fr;
+  }
+  .tool-intro {
+    position: static;
+  }
+  .tool-card {
+    padding: 28px;
+  }
+}
